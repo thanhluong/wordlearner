@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include "LStream.cpp"
+#include "LMath.cpp"
 
 using namespace std;
 
@@ -15,20 +17,6 @@ int C = 0; //Correct word
 
 vector<WordType> WordList;
 
-void ReadLine(string& s){
-    cin; getline(cin,s);
-}
-
-void ReadInt(int& N){
-    string s;
-    cin; getline(cin,s);
-
-    N = 0;
-    for(string::iterator it = s.begin(); it != s.end(); it++){
-        N = N * 10 + (*it - '0');
-    }
-}
-
 int CheckWord(WordType Word){
     string AnswerWord;
     string AnswerExample;
@@ -36,7 +24,7 @@ int CheckWord(WordType Word){
     cout << Word.Meaning << ":" << endl;
     ReadLine(AnswerWord);
     if(Word.Word != AnswerWord){//wrong answer
-        cout << "Wrong! Your score decreased by 1" << endl;
+        cout << "Wrong! Your score decreased by 1" << endl << endl;
         return 1;
     }
     C++, Score++;
@@ -62,7 +50,7 @@ void Checking(){
 
     srand(time(NULL)); //trigger random mode
     for(int i=1; i<=N; i++){
-        CheckWord( WordList[ rand()%M ] );
+        CheckWord( WordList[ RandNum(M) ] );
     }
 
     cout << "Your final result: ";
