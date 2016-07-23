@@ -24,7 +24,8 @@ int CheckWord(WordType Word){
     cout << Word.Meaning << ":" << endl;
     ReadLine(AnswerWord);
     if(Word.Word != AnswerWord){//wrong answer
-        cout << "Wrong! Your score decreased by 1" << endl << endl;
+        cout << "Wrong! The answer is " << Word.Word << "! ";
+        cout << "Your score decreased by 1" << endl << endl;
         return 1;
     }
     C++, Score++;
