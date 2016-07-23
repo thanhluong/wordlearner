@@ -43,11 +43,11 @@ int CheckWord(WordType Word){
     cout << "Correct! Give me an example for this word:" << endl;
     ReadLine(AnswerExample);
     if(Word.Example != AnswerExample){
-        cout << "Your example is not match to database! But we still +1 to your score!" << endl;
+        cout << "Your example is not match to database! But we still +1 to your score!" << endl << endl;
         return 2;
     }
     Score++;
-    cout << "Excellent! You learned by heart this word! +2 to your score" << endl;
+    cout << "Excellent! You learned by heart this word! +2 to your score" << endl << endl;
     return 0;
 }
 
@@ -58,6 +58,7 @@ void Checking(){
     cout << "Welcome to WordLearner 1.0" << endl;
     cout << "Enter the number of word you would like to check: ";
     ReadInt(N);
+    cout << " ================================================ " << endl << endl;
 
     srand(time(NULL)); //trigger random mode
     for(int i=1; i<=N; i++){
