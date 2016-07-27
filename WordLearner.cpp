@@ -48,11 +48,19 @@ int CheckWord(WordType Word){
 }
 
 void CheckEntirely(){
-    N = WordList.size();//check all element in word list
+    int Q;
+
+    cout << "How many words do you want to review? ";
+    ReadInt(Q);
+    cout << endl;
+
+    N = Q = min(Q,(int)WordList.size());
 
     sort(WordList.begin(), WordList.end(),__WordCMP);
     for(vector<WordType>::iterator it = WordList.begin(); it != WordList.end(); it++){
         CheckWord(*it);
+        if(--Q) continue;
+        break;
     }
 }
 
@@ -63,7 +71,6 @@ void CheckRandomly(){
     ReadInt(N);
     cout << " ================================================ " << endl << endl;
 
-    srand(time(NULL)); //trigger random mode
     for(int i=1; i<=N; i++){
         CheckWord( WordList[ RandNum(M) ] );
     }
@@ -104,6 +111,7 @@ void PrintResult(){
 }
 
 main(){
+    srand(time(NULL)); //trigger random mode
     ReadDict();
     Preferences();
     PrintResult();
